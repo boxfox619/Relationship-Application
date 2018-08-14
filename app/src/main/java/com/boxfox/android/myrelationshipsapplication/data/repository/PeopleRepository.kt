@@ -11,16 +11,21 @@ import rx.Single
 
 class PeopleRepository(private val ctx: Context) : PeopleUsecase {
 
-    override fun getList(): Observable<List<People>> {
+    override fun search(text: String): Observable<List<People>> {
         return Observable.create { subscriber ->
-            ctx.realm.where(PeopleRealmObject::class.java).findAllAsync().asObservable().subscribe {
+            ctx.realm.where(PeopleRealmObject::class.java)
+                    .contains("name", text)
+                    .contains("phone", text)
+                    .findAllAsync()
+                    .asObservable()
+                    .subscribe {
                 subscriber.onNext(it.map { PeopleRealmMapper.fromRealmObject(it) })
             }
         }
     }
 
     override fun add(people: People): Single<Boolean> {
-        return Single.create{subscriber ->
+        return Single.create { subscriber ->
             ctx.realm.beginTransaction()
             ctx.realm.copyToRealm(PeopleRealmMapper.toRealmObject(people))
             ctx.realm.commitTransaction()

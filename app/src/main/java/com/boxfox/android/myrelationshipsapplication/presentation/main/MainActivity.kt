@@ -1,7 +1,8 @@
-package com.boxfox.android.myrelationshipsapplication
+package com.boxfox.android.myrelationshipsapplication.presentation.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.boxfox.android.myrelationshipsapplication.R
 
 class MainActivity : AppCompatActivity() {
 
