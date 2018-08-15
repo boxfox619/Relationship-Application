@@ -6,6 +6,7 @@ import com.boxfox.android.myrelationshipsapplication.entity.People
 object PeopleRealmMapper : RealmEntityMapper<People, PeopleRealmObject> {
     override fun fromRealmObject(people: PeopleRealmObject): People {
         return People().apply {
+            id = people.id
             name = people.name
             age = people.age
             phone = people.phone
@@ -17,6 +18,7 @@ object PeopleRealmMapper : RealmEntityMapper<People, PeopleRealmObject> {
 
     override fun toRealmObject(people: People): PeopleRealmObject {
         return PeopleRealmObject().apply {
+            id = people.id
             name = people.name
             age = people.age
             phone = people.phone

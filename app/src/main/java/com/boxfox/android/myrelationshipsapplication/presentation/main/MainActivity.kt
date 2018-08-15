@@ -1,5 +1,6 @@
 package com.boxfox.android.myrelationshipsapplication.presentation.main
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
 import com.boxfox.android.myrelationshipsapplication.R
@@ -11,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : BaseActivity<MainPresenter>(), MainView {
     override val presenter: MainPresenter = MainPresenter(this)
     private lateinit var peopleAdpater: PeopleListAdapter
+    private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +21,7 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
         this.peopleAdpater = PeopleListAdapter(this)
         recyclerview_main.adapter = peopleAdpater
         presenter.load()
-        btn_main_search.setOnClickListener{presenter.search(et_main_search.text.toString())}
+        btn_main_search.setOnClickListener { presenter.search(et_main_search.text.toString()) }
     }
 
     override fun setItems(peopleList: List<People>) {
@@ -32,6 +34,10 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
     }
 
     override fun visibleProgress(visible: Boolean) {
-
+        if (visible) {
+            this.progressDialog = ProgressDialog.show(this, "", "");
+        } else if (this.progressDialog != null) {
+            this.progressDialog.dismiss()
+        }
     }
 }

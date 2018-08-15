@@ -4,6 +4,7 @@ import com.boxfox.android.myrelationshipsapplication.entity.People
 import rx.Single
 
 interface PeopleUsecase : Usecase {
+    fun get(id: Int): Single<People>
     fun getList(): Single<List<People>>
     fun search(text: String): Single<List<People>>
     fun add(people: People): Single<Void>

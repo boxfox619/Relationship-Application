@@ -8,7 +8,21 @@ import com.boxfox.android.myrelationshipsapplication.entity.People
 import com.boxfox.android.myrelationshipsapplication.util.realm
 import rx.Single
 
+
+
 class PeopleRepository(private val ctx: Context) : PeopleUsecase {
+
+
+    override fun get(id: Int): Single<People> {
+        return Single.create { subscriber ->
+            ctx.realm.where(PeopleRealmObject::class.java)
+                    .findFirstAsync()
+                    .asObservable<PeopleRealmObject>()
+                    .subscribe {
+                        subscriber.onSuccess( PeopleRealmMapper.fromRealmObject(it) )
+                    }
+        }
+    }
 
     override fun getList(): Single<List<People>> {
         return Single.create { subscriber ->
@@ -36,8 +50,17 @@ class PeopleRepository(private val ctx: Context) : PeopleUsecase {
 
     override fun add(people: People): Single<Void> {
         return Single.create { subscriber ->
+            val currentIdNum = ctx.realm.where(PeopleRealmObject::class.java).max("id")
+            val nextId: Int
+            if (currentIdNum == null) {
+                nextId = 1
+            } else {
+                nextId = currentIdNum!!.toInt() + 1
+            }
+            val peopleObject = PeopleRealmMapper.toRealmObject(people)
+            peopleObject.id = nextId
             ctx.realm.beginTransaction()
-            ctx.realm.copyToRealm(PeopleRealmMapper.toRealmObject(people))
+            ctx.realm.copyToRealm(peopleObject)
             ctx.realm.commitTransaction()
             subscriber.onSuccess(null)
         }
