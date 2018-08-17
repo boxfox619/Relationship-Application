@@ -7,6 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
         android:layout_marginBottom="5dp"
         android:orientation="vertical">
 
@@ -24,8 +25,8 @@
 
             <ImageView
                 android:id="@+id/iv_episode_edit_delete"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
                 android:src="@drawable/ic_close_black_24dp" />
@@ -46,6 +47,7 @@
             android:layout_marginBottom="5dp"
             android:text="@string/episode_content"
             android:textColor="#555555"
+            android:layout_marginTop="5dp"
             android:textSize="12dp" />
 
         <EditText
@@ -58,6 +60,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/et_episode_edit_content" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            />
 
     </LinearLayout>
 

@@ -65,6 +65,14 @@
             android:padding="5dp"
             android:src="@drawable/ic_close_black_24dp" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            />
+
     </GridLayout>
 
 </LinearLayout>
