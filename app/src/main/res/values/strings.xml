@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">MyRelationshipsApplication</string>
+    
+    <string name="name">이름</string>
+    <string name="age">나이</string>
+    <string name="phone">전화번호</string>
+    <string name="address">주소</string>
+    <string name="desc">비고</string>
+    <string name="date">일시</string>
+    <string name="family_husband">남편</string>
+    <string name="family_wife">아내</string>
+    <string name="family_son">아들</string>
+    <string name="family_daughter">딸</string>
+    <string name="family">가족</string>
+    <string name="information">신상정보</string>
+    <string name="episode">에피소드</string>
+    <string name="episode_content">내용</string>
 </resources>

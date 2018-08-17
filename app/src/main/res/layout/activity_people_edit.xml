@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="10dp"
-            android:text="신상정보"
+            android:text="@string/information"
             android:textColor="@android:color/black" />
 
         <View
@@ -49,7 +49,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
-                            android:text="이름"
+                            android:text="@string/name"
                             android:textColor="#555555"
                             android:textSize="12dp" />
 
@@ -74,7 +74,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
-                            android:text="나이"
+                            android:text="@string/age"
                             android:textColor="#555555"
                             android:textSize="12dp" />
 
@@ -96,7 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:text="전화번호"
+                    android:text="@string/phone"
                     android:textColor="#555555"
                     android:textSize="12dp" />
 
@@ -114,7 +114,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:text="주소"
+                    android:text="@string/address"
                     android:textColor="#555555"
                     android:textSize="12dp" />
 
@@ -134,7 +134,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="10dp"
-            android:text="가족"
+            android:text="@string/family"
             android:textColor="@android:color/black" />
 
         <View
@@ -152,8 +152,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
 
-            <include layout="@layout/view_family_edit_item"/>
-            
             <android.support.v7.widget.CardView
                 android:id="@+id/btn_people_edit_family_add"
                 android:layout_width="match_parent"
@@ -180,7 +178,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="10dp"
-            android:text="에피소드"
+            android:text="@string/episode"
             android:textColor="@android:color/black" />
 
         <View
