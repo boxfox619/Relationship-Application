@@ -10,147 +10,200 @@
         android:layout_margin="10dp"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/information"
-            android:textColor="@android:color/black" />
-
-        <View
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="10dp"
-            android:background="@android:color/black"/>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/information"
+                android:textColor="@android:color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:color/black" />
+
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="25dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
-                            android:text="@string/name"
-                            android:textColor="#555555"
-                            android:textSize="12dp" />
-
-                        <EditText
-                            android:id="@+id/et_people_edit_name"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:background="@drawable/border_edittext_background"
-                            android:padding="7dp"
-                            android:textSize="14dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
-                            android:text="@string/age"
-                            android:textColor="#555555"
-                            android:textSize="12dp" />
-
-                        <EditText
-                            android:id="@+id/et_people_edit_age"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:background="@drawable/border_edittext_background"
-                            android:inputType="number"
-                            android:padding="7dp"
-                            android:textSize="14dp" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
+                android:columnCount="14">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnSpan="2"
+                    android:layout_columnWeight="2"
+                    android:layout_gravity="fill"
                     android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:text="@string/name"
+                    android:textColor="#555555"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnSpan="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:text=" : "
+                    android:textColor="#555555"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:id="@+id/et_people_edit_name"
+                    android:layout_width="0dp"
+                    android:layout_columnSpan="6"
+                    android:layout_columnWeight="6"
+                    android:layout_gravity="fill"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/border_edittext_background"
+                    android:gravity="center_vertical"
+                    android:padding="7dp"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnSpan="2"
+                    android:layout_columnWeight="2"
+                    android:layout_gravity="fill"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:text="@string/age"
+                    android:textAlignment="center"
+                    android:textColor="#555555"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_columnSpan="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:text=" : "
+                    android:textColor="#555555"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:id="@+id/et_people_edit_age"
+                    android:layout_width="0dp"
+                    android:layout_columnSpan="2"
+                    android:layout_columnWeight="2"
+                    android:layout_gravity="fill"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/border_edittext_background"
+                    android:gravity="center_vertical"
+                    android:inputType="number"
+                    android:padding="7dp"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnSpan="2"
+                    android:layout_columnWeight="2"
+                    android:layout_gravity="fill"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
                     android:text="@string/phone"
+                    android:textAlignment="center"
+                    android:textColor="#555555"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnSpan="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:text=" : "
                     android:textColor="#555555"
                     android:textSize="12dp" />
 
                 <EditText
                     android:id="@+id/et_people_edit_phone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:layout_width="0dp"
+                    android:layout_columnSpan="11"
+                    android:layout_columnWeight="11"
+                    android:layout_gravity="fill"
+                    android:layout_marginBottom="5dp"
                     android:background="@drawable/border_edittext_background"
+                    android:gravity="center_vertical"
                     android:inputType="phone"
                     android:padding="7dp"
                     android:textSize="14dp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnSpan="2"
+                    android:layout_columnWeight="2"
+                    android:layout_gravity="fill"
                     android:layout_marginBottom="5dp"
+                    android:gravity="center"
                     android:text="@string/address"
                     android:textColor="#555555"
                     android:textSize="12dp" />
 
-                <EditText
-                    android:id="@+id/et_people_edit_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnSpan="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:text=" : "
+                    android:textColor="#555555"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/tv_people_edit_address"
+                    android:layout_width="0dp"
+                    android:layout_columnSpan="11"
+                    android:layout_columnWeight="11"
+                    android:layout_gravity="fill"
+                    android:layout_marginBottom="5dp"
                     android:background="@drawable/border_edittext_background"
+                    android:gravity="center_vertical"
                     android:padding="7dp"
                     android:textSize="14dp" />
-
-            </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/family"
-            android:textColor="@android:color/black" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="10dp"
-            android:background="@android:color/black"/>
+            </GridLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/layout_people_edit_family"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layout_marginBottom="25dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/family"
+                android:textColor="@android:color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:color/black" />
 
             <android.support.v7.widget.CardView
                 android:id="@+id/btn_people_edit_family_add"
@@ -162,10 +215,10 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_centerInParent="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_add_black_24dp"/>
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_add_black_24dp" />
 
                 </RelativeLayout>
 
@@ -173,28 +226,26 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/episode"
-            android:textColor="@android:color/black" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="10dp"
-            android:background="@android:color/black"/>
-
         <LinearLayout
             android:id="@+id/layout_people_edit_episode"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layout_marginBottom="25dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/episode"
+                android:textColor="@android:color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:color/black" />
 
             <android.support.v7.widget.CardView
                 android:id="@+id/btn_people_edit_episode_add"
@@ -206,10 +257,10 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_centerInParent="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_add_black_24dp"/>
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_add_black_24dp" />
 
                 </RelativeLayout>
 

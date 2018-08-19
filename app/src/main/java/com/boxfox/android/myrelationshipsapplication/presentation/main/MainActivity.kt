@@ -8,8 +8,6 @@ import com.boxfox.android.myrelationshipsapplication.R
 import com.boxfox.android.myrelationshipsapplication.entity.People
 import com.boxfox.android.myrelationshipsapplication.presentation.BaseActivity
 import com.boxfox.android.myrelationshipsapplication.presentation.edit.PeopleEditActivity
-import io.realm.Realm
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity<MainPresenter>(), MainView {
     override val presenter: MainPresenter = MainPresenter(this)

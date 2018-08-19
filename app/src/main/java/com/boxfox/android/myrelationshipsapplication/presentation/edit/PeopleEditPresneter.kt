@@ -3,7 +3,7 @@ package com.boxfox.android.myrelationshipsapplication.presentation.edit
 import com.boxfox.android.myrelationshipsapplication.data.repository.PeopleRepository
 import com.boxfox.android.myrelationshipsapplication.presentation.Presenter
 import android.app.DatePickerDialog.OnDateSetListener
-import android.widget.EditText
+import android.widget.TextView
 
 
 class PeopleEditPresneter(
@@ -13,9 +13,9 @@ class PeopleEditPresneter(
     override fun destory() {
     }
 
-    fun onDateFieldClicked(et: EditText){
+    fun onDateFieldClicked(et: TextView){
         val listener = OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-            et.setText(String.format("%04d-%02d-%02d", year, monthOfYear, dayOfMonth))
+            et.text = String.format("%04d-%02d-%02d", year, monthOfYear, dayOfMonth)
         }
         view.showDatePicker(listener)
     }
