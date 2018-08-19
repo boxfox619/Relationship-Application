@@ -1,17 +1,18 @@
 package com.boxfox.android.myrelationshipsapplication.data.model
 
-import io.realm.RealmObject
+import io.realm.RealmList
+import io.realm.RealmModel
 import io.realm.annotations.PrimaryKey
+import io.realm.annotations.RealmClass
 
-
-
-class PeopleRealmObject : RealmObject() {
+@RealmClass
+open class PeopleRealmObject : RealmModel {
     @PrimaryKey
     var id: Int = 0
     lateinit var name: String
     var age: Int = 0
     lateinit var phone: String
     lateinit var address: String
-    lateinit var familys : List<FamilyRealmObject>
-    lateinit var storys : List<StoryRealmObject>
+    lateinit var familys : RealmList<FamilyRealmObject>
+    lateinit var storys : RealmList<StoryRealmObject>
 }

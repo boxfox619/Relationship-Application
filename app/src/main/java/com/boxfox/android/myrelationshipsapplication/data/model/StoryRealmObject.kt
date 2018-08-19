@@ -1,8 +1,10 @@
 package com.boxfox.android.myrelationshipsapplication.data.model
 
-import io.realm.RealmObject
+import io.realm.RealmModel
+import io.realm.annotations.RealmClass
 
-class StoryRealmObject : RealmObject(){
+@RealmClass
+open class StoryRealmObject : RealmModel {
     lateinit var date: String
     lateinit var content: String
 }

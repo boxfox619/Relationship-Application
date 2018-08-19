@@ -1,7 +1,10 @@
 package com.boxfox.android.myrelationshipsapplication.data.mapper
 
+import com.boxfox.android.myrelationshipsapplication.data.model.FamilyRealmObject
 import com.boxfox.android.myrelationshipsapplication.data.model.PeopleRealmObject
+import com.boxfox.android.myrelationshipsapplication.data.model.StoryRealmObject
 import com.boxfox.android.myrelationshipsapplication.entity.People
+import io.realm.RealmList
 
 object PeopleRealmMapper : RealmEntityMapper<People, PeopleRealmObject> {
     override fun fromRealmObject(people: PeopleRealmObject): People {
@@ -17,14 +20,18 @@ object PeopleRealmMapper : RealmEntityMapper<People, PeopleRealmObject> {
     }
 
     override fun toRealmObject(people: People): PeopleRealmObject {
+        val familyRealmList = RealmList<FamilyRealmObject>()
+        val storyRealmList = RealmList<StoryRealmObject>()
+        people.familys.map { FamilyRealmMapper.toRealmObject(it) }.forEach{familyRealmList.add(it)}
+        people.storys.map { StoryRealmMapper.toRealmObject(it) }.forEach{storyRealmList.add(it)}
         return PeopleRealmObject().apply {
             id = people.id
             name = people.name
             age = people.age
             phone = people.phone
             address = people.address
-            familys = people.familys.map { FamilyRealmMapper.toRealmObject(it) }
-            storys = people.storys.map { StoryRealmMapper.toRealmObject(it) }
+            familys = familyRealmList
+            storys = storyRealmList
         }
     }
 }

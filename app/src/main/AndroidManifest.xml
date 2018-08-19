@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.edit.PeopleEditActivity" />
-        <activity android:name=".AddressSearchActivity"></activity>
     </application>
 
 </manifest>
