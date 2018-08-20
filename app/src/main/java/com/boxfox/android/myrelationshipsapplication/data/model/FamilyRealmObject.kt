@@ -7,6 +7,6 @@ import io.realm.annotations.RealmClass
 open class FamilyRealmObject : RealmModel {
     lateinit var name: String
     var age: Int = 0
-    lateinit var relationShip: String
+    lateinit var relationship: String
     lateinit var desc: String
 }

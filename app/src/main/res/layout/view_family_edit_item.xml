@@ -28,9 +28,9 @@
             android:background="@drawable/border_edittext_background"
             android:gravity="center"
             android:hint="@string/name"
-            android:maxLength="4"
             android:padding="7dp"
-            android:textSize="14dp" />
+            android:textSize="14dp"
+            android:maxLines="1"/>
 
         <EditText
             android:id="@+id/et_family_edit_age"
@@ -44,9 +44,9 @@
             android:gravity="center"
             android:hint="@string/age"
             android:inputType="number"
-            android:maxLength="3"
             android:padding="7dp"
-            android:textSize="14dp" />
+            android:textSize="14dp"
+            android:maxLines="1" />
 
         <EditText
             android:id="@+id/et_family_edit_desc"
@@ -56,9 +56,9 @@
             android:layout_gravity="fill"
             android:background="@drawable/border_edittext_background"
             android:hint="@string/desc"
-            android:maxLength="10"
             android:padding="7dp"
-            android:textSize="14dp" />
+            android:textSize="14dp"
+            android:maxLines="1" />
 
         <ImageView
             android:id="@+id/iv_family_edit_delete"

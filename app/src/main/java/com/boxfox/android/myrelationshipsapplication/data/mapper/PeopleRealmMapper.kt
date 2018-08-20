@@ -4,6 +4,7 @@ import com.boxfox.android.myrelationshipsapplication.data.model.FamilyRealmObjec
 import com.boxfox.android.myrelationshipsapplication.data.model.PeopleRealmObject
 import com.boxfox.android.myrelationshipsapplication.data.model.StoryRealmObject
 import com.boxfox.android.myrelationshipsapplication.entity.People
+import com.boxfox.android.myrelationshipsapplication.util.AgeCalHelper
 import io.realm.RealmList
 
 object PeopleRealmMapper : RealmEntityMapper<People, PeopleRealmObject> {
@@ -11,7 +12,7 @@ object PeopleRealmMapper : RealmEntityMapper<People, PeopleRealmObject> {
         return People().apply {
             id = people.id
             name = people.name
-            age = people.age
+            age = AgeCalHelper.toAge(people.age)
             phone = people.phone
             address = people.address
             familys = people.familys.map { FamilyRealmMapper.fromRealmObject(it) }
@@ -27,7 +28,7 @@ object PeopleRealmMapper : RealmEntityMapper<People, PeopleRealmObject> {
         return PeopleRealmObject().apply {
             id = people.id
             name = people.name
-            age = people.age
+            age = AgeCalHelper.toYear(people.age)
             phone = people.phone
             address = people.address
             familys = familyRealmList

@@ -37,7 +37,7 @@
                 android:background="@drawable/border_edittext_background"
                 android:gravity="center_vertical"
                 android:padding="7dp"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
 
             <ImageView
                 android:id="@+id/iv_episode_edit_delete"

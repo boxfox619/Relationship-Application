@@ -1,25 +1,29 @@
 package com.boxfox.android.myrelationshipsapplication.data.repository
 
 import android.content.Context
+import android.util.Log
 import com.boxfox.android.myrelationshipsapplication.data.mapper.PeopleRealmMapper
 import com.boxfox.android.myrelationshipsapplication.data.model.PeopleRealmObject
 import com.boxfox.android.myrelationshipsapplication.domain.PeopleUsecase
 import com.boxfox.android.myrelationshipsapplication.entity.People
 import io.realm.Realm
 import io.realm.RealmObject
+import io.realm.Sort
 import rx.Single
-
 
 
 class PeopleRepository(private val ctx: Context) : PeopleUsecase {
 
-
     override fun get(id: Int): Single<People> {
         return Single.create { subscriber ->
             val realm = Realm.getDefaultInstance()
-            val people = realm.where(PeopleRealmObject::class.java)
-                    .findFirstAsync()
-            subscriber.onSuccess(PeopleRealmMapper.fromRealmObject(people))
+            val people = realm.where(PeopleRealmObject::class.java).equalTo("id", id)
+                    .findFirst()
+            if(people!=null){
+                subscriber.onSuccess(PeopleRealmMapper.fromRealmObject(people))
+            }else{
+                subscriber.onError(null)
+            }
         }
     }
 
@@ -27,7 +31,7 @@ class PeopleRepository(private val ctx: Context) : PeopleUsecase {
         return Single.create { subscriber ->
             val realm = Realm.getDefaultInstance()
             val peopleList = realm.where(PeopleRealmObject::class.java)
-                    .findAllAsync()
+                    .findAllSortedAsync("id", Sort.DESCENDING)
             subscriber.onSuccess(peopleList.map { PeopleRealmMapper.fromRealmObject(it) })
         }
     }
@@ -36,11 +40,12 @@ class PeopleRepository(private val ctx: Context) : PeopleUsecase {
         return Single.create { subscriber ->
             val realm = Realm.getDefaultInstance()
             val peopleList = realm.where(PeopleRealmObject::class.java)
-                    .contains("name", text)
-                    .contains("phone", text)
-                    .findAllAsync()
+                    .contains("name", text).or()
+                    .contains("phone", text).or()
+                    .contains("address",text)
+                    .findAll()
             subscriber.onSuccess(peopleList.map { PeopleRealmMapper.fromRealmObject(it) })
-            }
+        }
     }
 
     override fun add(people: People): Single<Void> {
@@ -58,12 +63,27 @@ class PeopleRepository(private val ctx: Context) : PeopleUsecase {
             realm.beginTransaction()
             realm.copyToRealm(peopleObject)
             realm.commitTransaction()
+            Log.d("Test", realm.where(PeopleRealmObject::class.java).count().toString())
             subscriber.onSuccess(null)
         }
     }
 
+
+
+
+
+    override fun update(people: People): Single<Void> {
+        return Single.create { subscriber ->
+            remove(people).subscribe {
+                add(people).subscribe {
+                    subscriber.onSuccess(null)
+                }
+            }
+        }
+    }
+
     override fun remove(people: People): Single<Void> {
-        return Single.create{ subscriber ->
+        return Single.create { subscriber ->
             val realm = Realm.getDefaultInstance()
             realm.beginTransaction()
             val people = realm.where(PeopleRealmObject::class.java)
