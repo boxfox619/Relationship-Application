@@ -19,15 +19,15 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Realm.init(this)
-        this.peopleAdpater = PeopleListAdapter(applicationContext) {
-            et_main_search.setText("")
-            showEditActivity(it)
-        }
+        this.peopleAdpater = PeopleListAdapter(applicationContext) { showEditActivity(it) }
         recyclerview_main.layoutManager = LinearLayoutManager(this)
         recyclerview_main.adapter = peopleAdpater
         presenter.load()
         btn_main_search.setOnClickListener { search() }
-        btn_main_add.setOnClickListener { showEditActivity(-1) }
+        btn_main_add.setOnClickListener {
+            et_main_search.setText("")
+            showEditActivity(-1)
+        }
     }
 
     fun showEditActivity(peopleId: Int) {
