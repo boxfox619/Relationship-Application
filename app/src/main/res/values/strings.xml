@@ -7,12 +7,18 @@
     <string name="address">주소</string>
     <string name="desc">비고</string>
     <string name="date">일시</string>
-    <string name="family_husband">남편</string>
-    <string name="family_wife">아내</string>
-    <string name="family_son">아들</string>
-    <string name="family_daughter">딸</string>
+    <string name="family_parent">부모</string>
+    <string name="family_couple">부부</string>
+    <string name="family_children">자녀</string>
+    <string name="family_brother">형제</string>
+    <string name="family_sisters">자매</string>
+    <string name="family_etc">기타</string>
     <string name="family">가족</string>
     <string name="information">신상정보</string>
-    <string name="episode">에피소드</string>
+    <string name="episode">일화(에피소드) 또는 사실(평가)</string>
     <string name="episode_content">내용</string>
+
+    <string name="dialog_delete_people">선택한 사람을 삭제하시겠습니까?</string>
+    <string name="confirm">확인</string>
+    <string name="cancel">취소</string>
 </resources>

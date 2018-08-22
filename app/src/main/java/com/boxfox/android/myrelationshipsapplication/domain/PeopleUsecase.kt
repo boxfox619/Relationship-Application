@@ -9,5 +9,5 @@ interface PeopleUsecase : Usecase {
     fun search(text: String): Single<List<People>>
     fun add(people: People): Single<Void>
     fun update(people: People): Single<Void>
-    fun remove(people: People): Single<Void>
+    fun remove(people: Int): Single<Void>
 }

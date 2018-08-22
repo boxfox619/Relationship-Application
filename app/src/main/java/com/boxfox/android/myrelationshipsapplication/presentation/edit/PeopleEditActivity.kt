@@ -11,6 +11,7 @@ import com.boxfox.android.myrelationshipsapplication.entity.Story
 import com.boxfox.android.myrelationshipsapplication.presentation.BaseActivity
 import com.boxfox.android.myrelationshipsapplication.presentation.AddressSearchDialog
 import kotlinx.android.synthetic.main.activity_people_edit.*
+import java.util.*
 
 
 class PeopleEditActivity : BaseActivity<PeopleEditPresneter>(), PeopleEditView {
@@ -30,7 +31,7 @@ class PeopleEditActivity : BaseActivity<PeopleEditPresneter>(), PeopleEditView {
     fun addFamilyItem(family: Family?): View {
         val view = this.layoutInflater.inflate(R.layout.view_family_edit_item, null)
         val typeSpinner = view.findViewById<Spinner>(R.id.spinnet_family_edit_type)
-        val spinnerItems = arrayOf(getString(R.string.family_husband), getString(R.string.family_wife), getString(R.string.family_son), getString(R.string.family_daughter))
+        val spinnerItems = arrayOf(getString(R.string.family), getString(R.string.family_parent), getString(R.string.family_couple), getString(R.string.family_children), getString(R.string.family_brother), getString(R.string.family_sisters), getString(R.string.family_etc))
         val adapter = ArrayAdapter<String>(this, R.layout.view_family_spinner_item, spinnerItems)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         typeSpinner.setAdapter(adapter)
@@ -58,7 +59,8 @@ class PeopleEditActivity : BaseActivity<PeopleEditPresneter>(), PeopleEditView {
     }
 
     override fun showDatePicker(listener: DatePickerDialog.OnDateSetListener) {
-        val dialog = DatePickerDialog(this, listener, 2013, 10, 22)
+        val currentDT = Calendar.getInstance()
+        val dialog = DatePickerDialog(this, listener, currentDT.get(Calendar.YEAR), currentDT.get(Calendar.MONTH), currentDT.get(Calendar.DAY_OF_MONTH))
         dialog.show()
     }
 

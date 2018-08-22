@@ -24,6 +24,12 @@ class MainPresenter(
         }
     }
 
+    fun deletePeople(peopleId: Int){
+        repository.remove(peopleId).subscribe{
+            load()
+        }
+    }
+
     override fun destory() {
 
     }

@@ -19,7 +19,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="5dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -28,6 +28,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/information"
+                    android:textStyle="bold"
                     android:textColor="@android:color/black" />
 
                 <View
@@ -85,6 +86,7 @@
                         android:layout_columnWeight="2"
                         android:layout_gravity="fill"
                         android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="15dp"
                         android:gravity="center"
                         android:text="@string/age"
                         android:textAlignment="center"
@@ -196,7 +198,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="5dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -204,6 +206,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="10dp"
+                    android:textStyle="bold"
                     android:text="@string/family"
                     android:textColor="@android:color/black" />
 
@@ -243,7 +246,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="50dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -251,6 +254,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="10dp"
+                    android:textStyle="bold"
                     android:text="@string/episode"
                     android:textColor="@android:color/black" />
 

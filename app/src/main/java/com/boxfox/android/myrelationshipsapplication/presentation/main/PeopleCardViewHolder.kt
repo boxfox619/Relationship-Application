@@ -20,4 +20,11 @@ class PeopleCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun setOnClickListener(listener: () -> Unit) {
         itemView.findViewById<CardView>(R.id.card_view_people_list_item).setOnClickListener { listener() }
     }
+
+    fun setPressListener(listener: () -> Unit) {
+        itemView.findViewById<CardView>(R.id.card_view_people_list_item).setOnLongClickListener {
+            listener()
+            return@setOnLongClickListener true
+        }
+    }
 }

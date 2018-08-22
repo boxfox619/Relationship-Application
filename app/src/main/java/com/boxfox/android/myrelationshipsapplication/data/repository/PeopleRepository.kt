@@ -74,7 +74,7 @@ class PeopleRepository(private val ctx: Context) : PeopleUsecase {
 
     override fun update(people: People): Single<Void> {
         return Single.create { subscriber ->
-            remove(people).subscribe {
+            remove(people.id).subscribe {
                 add(people).subscribe {
                     subscriber.onSuccess(null)
                 }
@@ -82,12 +82,12 @@ class PeopleRepository(private val ctx: Context) : PeopleUsecase {
         }
     }
 
-    override fun remove(people: People): Single<Void> {
+    override fun remove(people: Int): Single<Void> {
         return Single.create { subscriber ->
             val realm = Realm.getDefaultInstance()
             realm.beginTransaction()
             val people = realm.where(PeopleRealmObject::class.java)
-                    .equalTo("id", people.id)
+                    .equalTo("id", people)
                     .findFirst()
             RealmObject.deleteFromRealm(people)
             realm.commitTransaction()

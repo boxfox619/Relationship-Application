@@ -1,5 +1,6 @@
 package com.boxfox.android.myrelationshipsapplication.presentation.main
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +11,10 @@ import com.boxfox.android.myrelationshipsapplication.presentation.BaseActivity
 import com.boxfox.android.myrelationshipsapplication.presentation.edit.PeopleEditActivity
 import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_main.*
+import android.content.DialogInterface
+import android.R.string.cancel
+import android.app.PendingIntent.getActivity
+
 
 class MainActivity : BaseActivity<MainPresenter>(), MainView {
     override val presenter: MainPresenter = MainPresenter(this)
@@ -19,7 +24,7 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Realm.init(this)
-        this.peopleAdpater = PeopleListAdapter(applicationContext) { showEditActivity(it) }
+        this.peopleAdpater = PeopleListAdapter(applicationContext, { showEditActivity(it) },  {deleteItem(it)})
         recyclerview_main.layoutManager = LinearLayoutManager(this)
         recyclerview_main.adapter = peopleAdpater
         presenter.load()
@@ -34,6 +39,13 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
         val intent = Intent(this, PeopleEditActivity::class.java)
         intent.putExtra("peopleId", peopleId)
         startActivity(intent)
+    }
+
+    fun deleteItem(peopleId: Int){
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage(R.string.dialog_delete_people)
+                .setPositiveButton(R.string.confirm) { dialog, id -> presenter.deletePeople(peopleId); dialog.dismiss()}
+                .setNegativeButton(R.string.cancel) { dialog, id -> dialog.dismiss()}.create().show()
     }
 
     override fun setItems(peopleList: List<People>) {
