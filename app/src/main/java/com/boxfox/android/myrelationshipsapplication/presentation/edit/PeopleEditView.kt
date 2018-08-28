@@ -11,4 +11,5 @@ interface PeopleEditView : BaseView{
     fun showDatePicker(listener: DatePickerDialog.OnDateSetListener): Unit
     fun showAddressPicker(): Unit
     fun finish(): Unit
+    fun sortEpisodeByDate(): Unit
 }

@@ -5,7 +5,7 @@
     <string name="age">나이</string>
     <string name="phone">전화번호</string>
     <string name="address">주소</string>
-    <string name="desc">비고</string>
+    <string name="desc">특기사항</string>
     <string name="date">일시</string>
     <string name="family_parent">부모</string>
     <string name="family_couple">부부</string>

@@ -15,7 +15,7 @@ class MainPresenter(
     }
 
     fun search(text: String) {
-        if (text.length > 0) {
+        if (text.isNotEmpty()) {
             repository.search(text).subscribe {
                 view.setItems(it)
             }

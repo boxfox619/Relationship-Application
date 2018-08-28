@@ -125,4 +125,22 @@ class PeopleEditActivity : BaseActivity<PeopleEditPresneter>(), PeopleEditView {
         }
         return episodes
     }
+
+    override fun sortEpisodeByDate() {
+        val episodes = ArrayList<View>()
+        for (i in 0 until layout_people_edit_episode.childCount) {
+            val episodeEditView = layout_people_edit_episode.getChildAt(i)
+            episodes.add(episodeEditView)
+        }
+        val mapComparator = Comparator<View> { v1, v2 ->
+            val date1 = Date(v1.findViewById<TextView>(R.id.tv_episode_edit_date).text.toString())
+            val date2 = Date(v2.findViewById<TextView>(R.id.tv_episode_edit_date).text.toString())
+            return@Comparator date1.compareTo(date2)
+        }
+        Collections.sort(episodes, mapComparator)
+        layout_people_edit_episode.removeAllViews()
+        episodes.forEach { v ->
+            layout_people_edit_episode.addView(v)
+        }
+    }
 }
