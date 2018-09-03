@@ -11,7 +11,9 @@ import com.boxfox.android.myrelationshipsapplication.entity.Story
 import com.boxfox.android.myrelationshipsapplication.presentation.BaseActivity
 import com.boxfox.android.myrelationshipsapplication.presentation.AddressSearchDialog
 import kotlinx.android.synthetic.main.activity_people_edit.*
+import java.text.SimpleDateFormat
 import java.util.*
+import java.util.regex.Pattern
 
 
 class PeopleEditActivity : BaseActivity<PeopleEditPresneter>(), PeopleEditView {
@@ -133,10 +135,19 @@ class PeopleEditActivity : BaseActivity<PeopleEditPresneter>(), PeopleEditView {
             episodes.add(episodeEditView)
         }
         val mapComparator = Comparator<View> { v1, v2 ->
-            val date1 = Date(v1.findViewById<TextView>(R.id.tv_episode_edit_date).text.toString())
-            val date2 = Date(v2.findViewById<TextView>(R.id.tv_episode_edit_date).text.toString())
-            return@Comparator date1.compareTo(date2)
+            val d1Str = v1.findViewById<TextView>(R.id.tv_episode_edit_date).text.toString()
+            val d2Str = v2.findViewById<TextView>(R.id.tv_episode_edit_date).text.toString()
+            if (!d1Str.isEmpty() && !d2Str.isEmpty()) {
+                var date1 = Integer.valueOf(d1Str.replace("-",""))
+                var date2 = Integer.valueOf(d2Str.replace("-",""))
+                return@Comparator date2 - date1
+            }
+            return@Comparator 0
         }
+
+
+
+
         Collections.sort(episodes, mapComparator)
         layout_people_edit_episode.removeAllViews()
         episodes.forEach { v ->

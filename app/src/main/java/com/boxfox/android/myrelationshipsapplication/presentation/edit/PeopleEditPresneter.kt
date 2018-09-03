@@ -17,7 +17,7 @@ class PeopleEditPresneter(
 
     fun onDateFieldClicked(et: TextView){
         val listener = OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-            et.text = String.format("%04d-%02d-%02d", year, monthOfYear, dayOfMonth)
+            et.text = String.format("%04d-%02d-%02d", year, monthOfYear+1, dayOfMonth)
             this.view.sortEpisodeByDate()
         }
         view.showDatePicker(listener)
